@@ -1,0 +1,129 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](color_blue)\
+$os\
+$shell\
+$username\
+[](fg:color_blue bg:color_aqua)\
+$directory\
+[](fg:color_aqua bg:color_green)\
+$git_branch\
+$git_status\
+[](fg:color_green bg:color_yellow)\
+$dotnet\
+$nodejs\
+[](fg:color_yellow bg:color_orange)\
+$azure\
+[](fg:color_orange bg:color_orange2)\
+$kubernetes\
+[](fg:color_orange2 bg:color_orange3)\
+$docker_context\
+[](fg:color_orange3 bg:color_black)\
+$time\
+[](fg:color_black)\
+$line_break$character"""
+
+palette = 'custom'
+
+[palettes.custom]
+color_purple = '#091A7A'
+color_blue = '#3366FF'
+color_green = '#28C15B'
+color_aqua = '#3EAEEF'
+color_yellow = '#d79921'
+color_orange = '#B8440A'
+color_orange2 = '#D65D0E'
+color_orange3 = '#E68E44'
+color_red = '#cc241d'
+color_black = '#3c3836'
+color_gray = '#bfbfbf'
+color_white = '#f3f3f3'
+
+[os]
+disabled = false
+style = "fg:color_white bg:color_blue"
+
+[shell]
+disabled = false
+bash_indicator = 'bash'
+powershell_indicator = 'pwsh'
+style = "fg:color_gray bg:color_blue"
+format = "[ $indicator]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = ""
+
+[username]
+show_always = true
+style_user = "fg:color_white bg:color_blue"
+style_root = "fg:color_white bg:color_blue"
+format = '[ $user ]($style)'
+
+[directory]
+style = "fg:color_white bg:color_aqua"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = " 󰈙 "
+"Downloads" = "  "
+"Music" = " 󰝚 "
+"Pictures" = "  "
+"Developer/Workspace" = " 󰵮 "
+
+[git_branch]
+symbol = ""
+style = "fg:color_white bg:color_green"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "fg:color_white bg:color_green"
+format = '[$all_status$ahead_behind ]($style)'
+
+[dotnet]
+symbol = ""
+style = "fg:color_white bg:color_yellow"
+format = '[ $symbol $version ]($style)'
+
+[nodejs]
+symbol = ""
+style = "fg:color_white bg:color_yellow"
+format = '[ $symbol $version ]($style)'
+
+[azure]
+disabled = false
+symbol = ""
+style = "fg:color_white bg:color_orange"
+format = '[ $symbol $subscription ]($style)'
+
+[kubernetes]
+disabled = false
+symbol = ""
+style = "fg:color_white bg:color_orange2"
+format = '[ $symbol $context ]($style)'
+
+[docker_context]
+symbol = ""
+style = "fg:color_white bg:color_orange3"
+format = '[ $symbol $context ]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:color_white bg:color_black"
+format = '[  $time ]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'

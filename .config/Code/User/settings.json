@@ -1,0 +1,97 @@
+{
+  // telemetry
+  "gitlens.telemetry.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  // wsl
+  "remote.autoForwardPortsSource": "hybrid",
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  // appearance
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
+  "terminal.integrated.fontSize": 16,
+  "window.titleBarStyle": "custom",
+  "window.customTitleBarVisibility": "auto",
+  // formatting
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.indentSize": 2,
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 100,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell"
+  },
+  "powershell.codeFormatting.preset": "Allman",
+  "powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "intelephense.stubs": ["apache", "wordpress", "standard", "json", "superglobals", "Core"],
+  "intelephense.environment.includePaths": ["./wp-includes", "./wp-content"],
+  // Code lens
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.showOnInterfaceMethods": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  // terminal
+  "terminal.integrated.suggest.enabled": true,
+  // git
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  // run and debug settings
+  "debug.onTaskErrors": "showErrors",
+  "powershell.debugging.createTemporaryIntegratedConsole": true,
+  "powershell.integratedConsole.startInBackground": true,
+  "powershell.integratedConsole.showOnStartup": false,
+  // uncategorised
+  "window.confirmSaveUntitledWorkspace": false,
+  "explorer.confirmDelete": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "dotnetAcquisitionExtension.enableTelemetry": false,
+  "testing.automaticallyOpenPeekView": "failureAnywhere",
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "extensions.ignoreRecommendations": true
+}

@@ -1,0 +1,10 @@
+[/]
+background-color='rgb(0,0,0)'
+background-transparency-percent=20
+font='FiraMono Nerd Font Mono 12'
+foreground-color='rgb(208,207,204)'
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='Custom'
