@@ -1,17 +1,19 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](color_blue)\
+[](color_darkblue)\
 $os\
 $shell\
+[](fg:color_darkblue bg:color_blue)\
 $username\
 [](fg:color_blue bg:color_aqua)\
 $directory\
 [](fg:color_aqua bg:color_green)\
 $git_branch\
 $git_status\
-[](fg:color_green bg:color_yellow)\
+[](fg:color_green bg:color_darkyellow)\
 $dotnet\
+[](fg:color_darkyellow bg:color_yellow)\
 $nodejs\
 [](fg:color_yellow bg:color_orange)\
 $azure\
@@ -28,10 +30,12 @@ palette = 'custom'
 
 [palettes.custom]
 color_purple = '#091A7A'
+color_darkblue = '#244ecc'
 color_blue = '#3366FF'
 color_green = '#28C15B'
 color_aqua = '#3EAEEF'
-color_yellow = '#d79921'
+color_darkyellow = '#d79921'
+color_yellow = '#f9b327'
 color_orange = '#B8440A'
 color_orange2 = '#D65D0E'
 color_orange3 = '#E68E44'
@@ -42,14 +46,14 @@ color_white = '#f3f3f3'
 
 [os]
 disabled = false
-style = "fg:color_white bg:color_blue"
+style = "fg:color_white bg:color_darkblue"
 
 [shell]
 disabled = false
 bash_indicator = 'bash'
 powershell_indicator = 'pwsh'
-style = "fg:color_gray bg:color_blue"
-format = "[ $indicator]($style)"
+style = "fg:color_white bg:color_darkblue"
+format = "[ $indicator ]($style)"
 
 [os.symbols]
 Windows = "󰍲"
@@ -85,7 +89,7 @@ format = '[$all_status$ahead_behind ]($style)'
 
 [dotnet]
 symbol = ""
-style = "fg:color_white bg:color_yellow"
+style = "fg:color_white bg:color_darkyellow"
 format = '[ $symbol $version ]($style)'
 
 [nodejs]
