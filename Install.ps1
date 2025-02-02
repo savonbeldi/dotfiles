@@ -93,8 +93,13 @@ Write-Host "`n(6/7) dotnet"
 Write-Host "Install global.json"
 Symlink-Files -Source $(Join-Path $DOTFILES global.json) -Target $(Join-Path $USER_HOME global.json)
 
-Write-Host "`nInstall dotnet"
-Write-Warning "TODO: add dotnet installer"
+Write-Host "`nInstall dotnet 8"
+bash -c "sudo apt install -y dotnet-sdk-8.0"
+Write-Ok "dotnet 8 installed"
+
+Write-Host "`nInstall dotnet 9"
+bash -c "sudo add-apt-repository ppa:dotnet/backports && sudo apt install -y dotnet-sdk-9.0"
+Write-Ok "dotnet 9 installed"
 
 Write-Host "`n(7/7) nodejs"
 Write-Host "Install nvm"
@@ -196,7 +201,8 @@ if ($IsWsl -eq $false)
     if ($(Confirm-Action -Message "`n[5/5] Do you want to install GNOME Terminal profile?" -Default "Y") -eq $true)
     {
       Write-Host "`nInstall GNOME Terminal profile"
-      bash -c "profile_uuid=$(dconf dump /org/gnome/terminal/legacy/profiles:/ | grep -oP '[0-9a-f-]{36}') && dconf load /org/gnome/terminal/legacy/profiles:/:$profile_uuid/ < $PWD/gnome-terminal-profile.dconf"
+      $profileUuid = bash -c "dconf dump /org/gnome/terminal/legacy/profiles:/ | grep -oP '[0-9a-f-]{36}'"
+      bash -c "dconf load /org/gnome/terminal/legacy/profiles:/:$profileUuid/ < $PWD/gnome-terminal-profile.dconf"
       Write-Ok "GNOME Terminal profile installed"
     }
 
