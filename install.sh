@@ -1,55 +1,46 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Set trap to catch SIGINT (Ctrl+C) and exit the script immediately
 trap 'echo -e "\nCtrl+C pressed, exiting script..."; exit' SIGINT
 
-echo -e "\e[34m\n[DOTFILES] Install Powershell Core\e[0m"
-echo -e "\e[90mThis script will install PowerShell Core and change the default shell to PowerShell for the current user\e[0m"
-echo -e "\e[90mAfter the installation is complete, the script will continue in PowerShell to install the dotfiles\e[0m"
+# Exit immediately if a command exits with a non-zero status
+set -e
 
-# source: https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu?view=powershell-7.4#installation-via-package-repository-the-package-repository
-echo -e "\n[1/4] Install prerequisites"
-sudo apt update && sudo apt install -y wget apt-transport-https software-properties-common
-if [ $? -eq 0 ]; then
-  echo -e "\e[32m[OK] Prerequisites installed\e[0m"
-else
-  echo -e "\e[31m[ERROR] Failed to install prerequisites\e[0m"
-  exit 1
-fi
+echo -e "\n[1/x] Installing prerequisites"
+sudo apt update
+sudo apt install -y curl
 
-echo -e "\n[2/4] Install PowerShell Core"
-source /etc/os-release
-wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-rm -f packages-microsoft-prod.deb
-sudo apt update && sudo apt install -y powershell
-if [ $? -eq 0 ]; then
-  echo -e "\e[32m[OK] PowerShell Core installed\e[0m"
-else
-  echo -e "\e[31m[ERROR] Failed to install PowerShell Core\e[0m"
-  exit 1
-fi
+echo -e "\n[2/x] Configure Bash shell"
+curl -sS https://starship.rs/install.sh | sh
+ln -sf $HOME/dotfiles/.bashrc $HOME/.bashrc
+ln -sf $HOME/dotfiles/.profile $HOME/.profile
+ln -sf $HOME/dotfiles/.config/starship.toml $HOME/.config/starship.toml
 
-PWSH_PATH=$(which pwsh)
-if [ -z "$PWSH_PATH" ]; then
-    echo -e "\e[31m[ERROR] PowerShell installation failed: PWSH_PATH is not set\e[0m"
-    exit 1
-fi
+echo -e "\n[3/x] Configure git"
+sudo apt install -y git
+ln -sf $HOME/dotfiles/.gitconfig $HOME/.gitconfig
 
-echo -e "\n[3/4] Changing default shell for user"
-chsh -s "$PWSH_PATH"
-if [ $? -eq 0 ]; then
-  echo -e "\e[32m[OK] Default shell changed\e[0m"
-else
-  echo -e "\e[31m[ERROR] Failed to change default shell\e[0m"
-  exit 1
-fi
+echo -e "\n[4/x] Configure fonts"
+mkdir -p $HOME/.local/share/fonts
+ln -sf $HOME/dotfiles/.local/share/fonts/* $HOME/.local/share/fonts
+fc-cache -f
 
-echo -e "\n[4/4] Continuing installation in PowerShell"
-pwsh -Command $PWD/Install.ps1
-if [ $? -eq 0 ]; then
-  echo -e "\e[32m[OK] Dotfiles installed\e[0m"
-else
-  echo -e "\e[31m[ERROR] Dotfiles installation failed, see errors above\e[0m"
-  exit 1
-fi
+echo -e "\n[5/x] Configure VSCode"
+ln -sf $HOME/dotfiles/.config/Code/User/settings.json $HOME/.config/Code/User/settings.json
+ln -sf $HOME/dotfiles/.config/Code/User/keybindings.json $HOME/.config/Code/User/keybindings.json
+
+echo -e "\n[6/x] Configure ranger"
+sudo apt install -y ranger
+mkdir -p $HOME/.config/ranger
+ln -sf $HOME/dotfiles/.config/ranger/rc.conf $HOME/.config/ranger/rc.conf
+
+echo -e "\n[7/x] Configure vim"
+sudo apt install -y vim
+ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
+
+echo -e "\n[8/x] Configure Gnome Terminal"
+profileUuid=$(dconf dump /org/gnome/terminal/legacy/profiles:/ | grep -oP '[0-9a-f-]{36}')
+dconf load /org/gnome/terminal/legacy/profiles:/:$profileUuid/ < $HOME/dotfiles/gnome-terminal-profile.dconf
+
+
+echo -e "\n[8/x] Installation complete! Please restart your terminal."

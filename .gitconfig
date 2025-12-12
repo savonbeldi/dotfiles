@@ -1,10 +1,5 @@
-[user]
-  email = anonymous
-  name = anonymous
-[credential "https://github.com"]
-  helper = store # use fine-grained access tokens https://github.com/settings/tokens?type=beta
 [init]
-  defaultBranch = main
-
-[include]
-  path = ~/dotfiles/work.gitconfig
+	defaultBranch = main
+[user]
+  email = git@iek.dev
+  name = iek

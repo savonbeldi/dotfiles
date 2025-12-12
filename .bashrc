@@ -89,7 +89,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
-alias la='ls -la'
+alias la='ls -A'
 alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Prompt
+# CUSTOM
 eval "$(starship init bash)"
-
+bind '"\t":menu-complete'
+bind "set show-all-if-ambiguous on"
+bind "set completion-ignore-case on"
+bind "set menu-complete-display-prefix on"
