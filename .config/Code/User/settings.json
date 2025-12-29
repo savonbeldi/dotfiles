@@ -85,7 +85,7 @@
     "typescript.referencesCodeLens.enabled": true,
     "typescript.referencesCodeLens.showOnAllFunctions": true,
     // terminal
-    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.suggest.enabled": false,
     // git
     "git.autofetch": true,
     "git.confirmSync": false,

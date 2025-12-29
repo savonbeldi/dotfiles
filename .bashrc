@@ -118,7 +118,8 @@ fi
 
 # CUSTOM
 eval "$(starship init bash)"
-bind '"\t":menu-complete'
-bind "set show-all-if-ambiguous on"
-bind "set completion-ignore-case on"
-bind "set menu-complete-display-prefix on"
+
+# fzf configuration
+export FZF_COMPLETION_TRIGGER=''  # Use Tab directly for fzf completion
+source /usr/share/doc/fzf/examples/key-bindings.bash
+# source /usr/share/bash-completion/completions/fzf # Its already sourced by bash-completion on line 113.
