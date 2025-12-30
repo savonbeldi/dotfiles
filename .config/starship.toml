@@ -8,8 +8,9 @@ $directory\
 $git_branch\
 $git_status\
 $all\
-$time\
 $fill\
+$cmd_duration\
+$time\
 $line_break\
 $character
 """
@@ -43,7 +44,7 @@ format = '\[[ $user]($style)\]'
 [directory]
 truncation_length = 8
 truncation_symbol = '…/'
-format = '\[ [$path]($style)[$read_only]($read_only_style)\]'
+format = '\[[ $path]($style)[$read_only]($read_only_style)\]'
 
 [direnv]
 format = '\[[$symbol$loaded/$allowed]($style)\]'
@@ -124,6 +125,9 @@ format = '\[[$symbol$workspace]($style)\]'
 
 [status]
 format = '\[[$symbol$status]($style)\]'
+
+[cmd_duration]
+format = '\[[󱎫 $duration]($style)\]'
 
 [time]
 disabled = false
