@@ -4,10 +4,11 @@ format = """
 $os\
 $shell\
 $username\
-$directory\
 $git_branch\
 $git_status\
+$git_metrics\
 $all\
+$directory\
 $fill\
 $cmd_duration\
 $time\
@@ -44,7 +45,7 @@ format = '\[[ $user]($style)\]'
 [directory]
 truncation_length = 8
 truncation_symbol = '…/'
-format = '\[[ $path]($style)[$read_only]($read_only_style)\]'
+format = ' [ $path]($style)[$read_only]($read_only_style) '
 
 [direnv]
 format = '\[[$symbol$loaded/$allowed]($style)\]'
