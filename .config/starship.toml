@@ -3,29 +3,23 @@
 format = """
 $os\
 $shell\
-$username\
-$git_branch\
-$git_status\
-$git_metrics\
+$sudo\
+$username \
+$directory \
+$fill \
 $all\
-$directory\
-$fill\
 $cmd_duration\
 $time\
 $line_break\
 $character
 """
 
-[character]
-success_symbol = '[➜](bold green)'
-error_symbol = '[➜](bold red)'
-
 [os]
 disabled = false
 format = '\[[$symbol]($style)\]'
 
 [os.symbols]
-Ubuntu = ""
+Ubuntu = ""
 Windows = ""
 
 [shell]
@@ -43,12 +37,13 @@ disabled = false
 format = '\[[ $user]($style)\]'
 
 [directory]
-truncation_length = 8
+truncation_length = 64
 truncation_symbol = '…/'
-format = ' [ $path]($style)[$read_only]($read_only_style) '
+format = '[ $path]($style)[$read_only]($read_only_style)'
 
-[direnv]
-format = '\[[$symbol$loaded/$allowed]($style)\]'
+[fill]
+symbol = '.'
+style = 'bold #333333'
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
@@ -65,24 +60,13 @@ format = '\[[$state ($progress_current/$progress_total)]($style)\]'
 [git_status]
 format = '(\[[$all_status$ahead_behind]($style)\])'
 
-[hostname]
-ssh_symbol = '󰣀'
-format = '\[[$ssh_symbol($hostname)]($style)\] '
-
-[localip]
-format = '\[[$localipv4]($style)\]'
-
-[memory_usage]
-symbol = ''
-format = '\[$symbol[$ram( | $swap)]($style)\]'
+[java]
+symbol = ''
+format = '\[[$symbol($version)]($style)\]'
 
 [dotnet]
 symbol = ''
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-[java]
-symbol = ''
-format = '\[[$symbol($version)]($style)\]'
 
 [nodejs]
 symbol = '󰎙'
@@ -92,13 +76,18 @@ format = '\[󰎙 [$symbol($version)]($style)\]'
 symbol = ''
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 
+[golang]
+symbol='󰟓'
+format = '\[[$symbol $version]($style)\]'
+
 [docker_context]
 symbol = ''
 format = '\[[$symbol$context]($style)\]'
 
 [kubernetes]
+disabled = false
 symbol = ''
-format = '\[[$symbol$context( \($namespace\))]($style)\]'
+format = '\[[$symbol $context( \($namespace\))]($style)\]'
 
 [container]
 symbol = ''
@@ -107,6 +96,10 @@ format = '\[[$symbol \[$name\]]($style)\]'
 [helm]
 symbol = ''
 format = '\[[$symbol($version)]($style)\]'
+
+[terraform]
+symbol = ''
+format = '\[[$symbol$workspace]($style)\]'
 
 [azure]
 symbol = ''
@@ -120,10 +113,6 @@ format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 symbol = '󱇶'
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
-[terraform]
-symbol = ''
-format = '\[[$symbol$workspace]($style)\]'
-
 [status]
 format = '\[[$symbol$status]($style)\]'
 
@@ -134,3 +123,6 @@ format = '\[[󱎫 $duration]($style)\]'
 disabled = false
 format = '\[[󰥔 $time]($style)\]'
 
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'

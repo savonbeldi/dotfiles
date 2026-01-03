@@ -116,10 +116,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# CUSTOM
+### Custom configurations below this line
 eval "$(starship init bash)"
 
 # fzf configuration
 export FZF_COMPLETION_TRIGGER=''  # Use Tab directly for fzf completion
 source /usr/share/doc/fzf/examples/key-bindings.bash
 # source /usr/share/bash-completion/completions/fzf # Its already sourced by bash-completion on line 113.
+
+# kubectl
+alias k='kubectl'
+source <(kubectl completion bash)
+complete -o default -F __start_kubectl k
+
+# helm
+source <(helm completion bash)
+
