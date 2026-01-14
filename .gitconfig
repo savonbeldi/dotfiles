@@ -1,5 +1,5 @@
 [init]
 	defaultBranch = main
 [user]
-  email = git@iek.dev
   name = iek
+  email = git@iek.dev

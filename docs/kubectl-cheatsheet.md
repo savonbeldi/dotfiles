@@ -3,29 +3,29 @@
 ## Create resources
 
 ```bash
-# Create service account
-kubectl create serviceaccount serviceaccount-name --dry-run=client -o yaml > serviceaccount.yaml
-
-# Create network policy
-kubectl create networkpolicy policy-name --pod-selector=key=value --ingress --dry-run=client -o yaml > networkpolicy.yaml
-
-# Create service
-kubectl create service <service-type> <service-name> --tcp=host-port:target-port --dry-run=client -o yaml > service.yaml
-
-# Create configmap from file
-kubectl create configmap configmap-name --from-file=path/to/file --dry-run=client -o yaml > configmap.yaml
-
-# Create secret from literal
-kubectl create secret generic secret-name --from-literal=key1=value1 --from-literal=key2=value2 --dry-run=client -o yaml > secret.yaml
-
-# Create deployment
-kubectl create deployment deployment-name --image=image-name --dry-run=client -o yaml > deployment.yaml
+# Create namespace
+kubectl create namespace NAMESPACE --dry-run -o yaml > ns.yaml
 
 # Create pod
-kubectl run pod-name --image=image-name --dry-run=client -o yaml > pod.yaml
+kubectl run -n NAMESPACE POD --image=IMAGE --dry-run -o yaml > po.yaml
 
-# Create namespace
-kubectl create namespace namespace-name --dry-run=client -o yaml > namespace.yaml
+# Create deployment
+kubectl create -n NAMESPACE deployment DEPLOYMENT --image=IMAGE --dry-run -o yaml > deploy.yaml
+
+# Create configmap from file
+kubectl create -n NAMESPACE configmap CONFIGMAP --from-file=path/to/file --dry-run -o yaml > cm.yaml
+
+# Create secret from literal
+kubectl create -n NAMESPACE secret generic SECRET --from-literal=key1=value1 --from-literal=key2=value2 --dry-run -o yaml > sc.yaml
+
+# Create service
+kubectl create -n NAMESPACE service SERVICE_TYPE SERVICE_NAME --tcp=HOST_PORT:TARGET_PORT --dry-run -o yaml > svc.yaml
+
+# Create network policy
+kubectl create -n NAMESPACE networkpolicy POLICY --pod-selector=key=value --ingress --dry-run -o yaml > np.yaml
+
+# Create service account
+kubectl create -n NAMESPACE serviceaccount SERVICEACCOUNT --dry-run -o yaml > serviceaccount.yaml
 ```
 
 ## Create user certificates
