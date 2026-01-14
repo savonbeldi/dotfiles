@@ -1,6 +1,7 @@
 # Kubectl cheatsheet
 
 ## Create resources
+
 ```bash
 # Create service account
 kubectl create serviceaccount serviceaccount-name --dry-run=client -o yaml > serviceaccount.yaml
@@ -27,24 +28,52 @@ kubectl run pod-name --image=image-name --dry-run=client -o yaml > pod.yaml
 kubectl create namespace namespace-name --dry-run=client -o yaml > namespace.yaml
 ```
 
-### Create user certificates
+## Create user certificates
+
 To create a user certificate for authentication, you can use OpenSSL to generate a private key and a certificate signing request (CSR). Then, sign the CSR with the cluster's Certificate Authority (CA).
+
 ```bash
 # Generate a private key and CSR
-openssl genrsa -out martin.key 2048
-openssl req -new -key martin.key -subj "/CN=martin" -out martin.csr
+openssl genrsa -out hamid.key 2048
+openssl req -new -key hamid.key -subj "/CN=hamid" -out hamid.csr
 
 # Sign the CSR with the cluster CA
-openssl x509 -req -in martin.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -out martin.crt -CAcreateserial
+openssl x509 -req -in hamid.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -out hamid.crt -CAcreateserial
 
-# Configure kubeconfig for Martin
-kubectl config set-credentials martin --client-certificate=martin.crt --client-key=martin.key
-kubectl config set-context developer --cluster=kubernetes --user=martin
+# Configure kubeconfig for Hamid
+kubectl config set-credentials hamid --client-certificate=hamid.crt --client-key=hamid.key
+kubectl config set-context developer --cluster=kubernetes --user=hamid
 kubectl config use-context developer
 ```
 
-## Debug nodes
+## Debug issues
+
+### Debug commands
+
+```bash
+# Launch a separate debug pod
+kubectl run -n NAMESPACE debug --image busybox --rm -it --restart Never -- sh
+
+# Launch a debug container in a target pod
+kubectl debug -n NAMESPACE pods/POD --image busybox -it -- sh
+
+# Run a command in an existing container
+kubectl exec -n NAMESPACE pods/POD -c CONTAINER  -it -- sh
+
+# Attach to a running container
+kubectl attach -n NAMESPACE pods/POD -c CONTAINER -it
+
+# Copy file to a remote pod
+kubectl cp /tmp/local NAMESPACE/POD:/tmp/remote
+
+# Copy file from a remote pod
+kubectl cp NAMESPACE/POD:/tmp/remote /tmp/local
+```
+
+### Debug nodes
+
 Crashed kube-apiserver logs can be checked using `crictl`:
+
 ```bash
 # Get the actual container ID of the crashed kube-apiserver
 sudo crictl ps -a | grep kube-apiserver
