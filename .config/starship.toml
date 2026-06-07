@@ -7,6 +7,11 @@ $sudo\
 $username \
 $directory \
 $fill \
+$docker_context\
+$kubernetes\
+$dotnet\
+$nodejs\
+$python\
 $all\
 $cmd_duration\
 $time\
@@ -65,16 +70,19 @@ symbol = ''
 format = '\[[$symbol($version)]($style)\]'
 
 [dotnet]
+disabled = false
 symbol = ''
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
 
 [nodejs]
+disabled = false
 symbol = '󰎙'
 format = '\[󰎙 [$symbol($version)]($style)\]'
 
 [python]
+disabled = false
 symbol = ''
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = '\[[$symbol $pyenv_prefix $version \($virtualenv\)]($style)\]'
 
 [golang]
 symbol='󰟓'

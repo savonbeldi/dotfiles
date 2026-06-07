@@ -112,5 +112,7 @@
       "markdown": true,
       "scminput": false
     },
-    "github.copilot.nextEditSuggestions.enabled": true
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "chat.viewSessions.orientation": "stacked",
+    "claudeCode.preferredLocation": "panel"
 }

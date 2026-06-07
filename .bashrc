@@ -117,7 +117,9 @@ if ! shopt -oq posix; then
 fi
 
 ### Custom configurations below this line
-eval "$(starship init bash)"
+
+# Add ~/.local/bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # fzf configuration
 export FZF_COMPLETION_TRIGGER=''  # Use Tab directly for fzf completion
@@ -126,9 +128,37 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # kubectl
 alias k='kubectl'
+alias kctx='kubectl config use-context'
+alias kns='kubectl config set-context --current --namespace'
+
 source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 
 # helm
 source <(helm completion bash)
 
+# python
+# Load pyenv automatically
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+# Load pyenv-virtualenv automatically
+eval "$(pyenv virtualenv-init -)"
+
+# pip autocompletion
+eval "$(pip completion --bash)"
+
+# node.js
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# npm autocompletion
+source <(npm completion)
+
+# autocomplete
+# TODO: Add more autocompletions for other tools as needed.
+
+# starship
+eval "$(starship init bash)"
