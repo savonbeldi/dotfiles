@@ -131,23 +131,23 @@ alias k='kubectl'
 alias kctx='kubectl config use-context'
 alias kns='kubectl config set-context --current --namespace'
 
-source <(kubectl completion bash)
-complete -o default -F __start_kubectl k
+# source <(kubectl completion bash)
+# complete -o default -F __start_kubectl k
 
 # helm
-source <(helm completion bash)
+# source <(helm completion bash)
 
 # python
 # Load pyenv automatically
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - bash)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - bash)"
 
-# Load pyenv-virtualenv automatically
-eval "$(pyenv virtualenv-init -)"
+# # Load pyenv-virtualenv automatically
+# eval "$(pyenv virtualenv-init -)"
 
-# pip autocompletion
-eval "$(pip completion --bash)"
+# # pip autocompletion
+# eval "$(pip completion --bash)"
 
 # node.js
 export NVM_DIR="$HOME/.nvm"

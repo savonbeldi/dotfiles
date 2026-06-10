@@ -8,8 +8,6 @@
     "security.allowedUNCHosts": [
         "wsl.localhost"
     ],
-    // appearance
-    "workbench.colorTheme": "GitHub Dark Default",
     "workbench.iconTheme": "material-icon-theme",
     "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
     "terminal.integrated.fontSize": 16,
@@ -114,5 +112,33 @@
     },
     "github.copilot.nextEditSuggestions.enabled": true,
     "chat.viewSessions.orientation": "stacked",
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "pgsql.serverGroups": [
+      {
+        "name": "Servers",
+        "id": "968F2F1E-AF58-4C88-BA9F-1ACBD9663C85",
+        "isDefault": true
+      }
+    ],
+    "pgsql.connections": [
+      {
+        "id": "4054468D-8742-40CB-BD81-CACC8752CC7C",
+        "groupId": "968F2F1E-AF58-4C88-BA9F-1ACBD9663C85",
+        "authenticationType": "SqlLogin",
+        "connectTimeout": 15,
+        "applicationName": "vscode-pgsql",
+        "clientEncoding": "utf8",
+        "sslmode": "prefer",
+        "sshSavePassword": true,
+        "savePassword": true,
+        "sslRootCertMode": "none",
+        "server": "localhost",
+        "user": "postgres",
+        "password": "",
+        "profileName": "localhost, <default> (postgres)",
+        "expiresOn": 0,
+        "sshPassword": ""
+      }
+    ]
 }
