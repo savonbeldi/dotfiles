@@ -1,144 +1,164 @@
 {
-    // telemetry
-    "gitlens.telemetry.enabled": false,
-    "redhat.telemetry.enabled": false,
-    "telemetry.telemetryLevel": "off",
-    // wsl
-    "remote.autoForwardPortsSource": "hybrid",
-    "security.allowedUNCHosts": [
-        "wsl.localhost"
-    ],
-    "workbench.iconTheme": "material-icon-theme",
-    "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
-    "terminal.integrated.fontSize": 16,
-    "window.titleBarStyle": "custom",
-    "window.customTitleBarVisibility": "auto",
-    // formatting
-    "editor.detectIndentation": false,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.indentSize": 2,
-    "prettier.tabWidth": 2,
-    "prettier.printWidth": 100,
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[powershell]": {
-        "editor.defaultFormatter": "ms-vscode.powershell"
-    },
-    "powershell.codeFormatting.preset": "Allman",
-    "powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true,
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[xml]": {
-        "editor.defaultFormatter": "redhat.vscode-xml"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[csharp]": {
-        "editor.defaultFormatter": "ms-dotnettools.csharp"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[php]": {
-        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
-    },
-    "intelephense.stubs": [
-        "apache",
-        "wordpress",
-        "standard",
-        "json",
-        "superglobals",
-        "Core"
-    ],
-    "intelephense.environment.includePaths": [
-        "./wp-includes",
-        "./wp-content"
-    ],
-    // Code lens
-    "javascript.referencesCodeLens.enabled": true,
-    "javascript.referencesCodeLens.showOnAllFunctions": true,
-    "typescript.implementationsCodeLens.enabled": true,
-    "typescript.implementationsCodeLens.showOnInterfaceMethods": true,
-    "typescript.referencesCodeLens.enabled": true,
-    "typescript.referencesCodeLens.showOnAllFunctions": true,
-    // terminal
-    "terminal.integrated.suggest.enabled": false,
-    // git
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    // run and debug settings
-    "debug.onTaskErrors": "showErrors",
-    "powershell.debugging.createTemporaryIntegratedConsole": true,
-    "powershell.integratedConsole.startInBackground": true,
-    "powershell.integratedConsole.showOnStartup": false,
-    // uncategorised
-    "window.confirmSaveUntitledWorkspace": false,
-    "explorer.confirmDelete": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmPasteNative": false,
-    "dotnetAcquisitionExtension.enableTelemetry": false,
-    "testing.automaticallyOpenPeekView": "failureAnywhere",
-    "[dockercompose]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "extensions.ignoreRecommendations": true,
-    "github.copilot.enable": {
-      "*": true,
-      "plaintext": false,
-      "markdown": true,
-      "scminput": false
-    },
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "chat.viewSessions.orientation": "stacked",
-    "claudeCode.preferredLocation": "panel",
-    "workbench.colorTheme": "GitHub Dark Default",
-    "pgsql.serverGroups": [
-      {
-        "name": "Servers",
-        "id": "968F2F1E-AF58-4C88-BA9F-1ACBD9663C85",
-        "isDefault": true
-      }
-    ],
-    "pgsql.connections": [
-      {
-        "id": "4054468D-8742-40CB-BD81-CACC8752CC7C",
-        "groupId": "968F2F1E-AF58-4C88-BA9F-1ACBD9663C85",
-        "authenticationType": "SqlLogin",
-        "connectTimeout": 15,
-        "applicationName": "vscode-pgsql",
-        "clientEncoding": "utf8",
-        "sslmode": "prefer",
-        "sshSavePassword": true,
-        "savePassword": true,
-        "sslRootCertMode": "none",
-        "server": "localhost",
-        "user": "postgres",
-        "password": "",
-        "profileName": "localhost, <default> (postgres)",
-        "expiresOn": 0,
-        "sshPassword": ""
-      }
-    ]
+  // telemetry
+  "telemetry.telemetryLevel": "off",
+  "dotnetAcquisitionExtension.enableTelemetry": false,
+  "gitlens.telemetry.enabled": false,
+  "redhat.telemetry.enabled": false,
+  // wsl
+  "remote.autoForwardPortsSource": "hybrid",
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  // appearance
+  "window.autoDetectColorScheme": true,
+  "window.titleBarStyle": "custom",
+  "window.customTitleBarVisibility": "auto",
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "agentSessionsWelcomePage",
+  // editor defaults
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.indentSize": 2,
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 100,
+  // formatters, by language
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "powershell.codeFormatting.preset": "Allman",
+  "powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true,
+  // language tooling
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "intelephense.stubs": ["apache", "wordpress", "standard", "json", "superglobals", "Core"],
+  "intelephense.environment.includePaths": ["./wp-includes", "./wp-content"],
+  // code lens
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.showOnInterfaceMethods": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  // terminal
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font Mono",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.suggest.enabled": false,
+  // git and diffs
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  // run, debug and test
+  "debug.onTaskErrors": "showErrors",
+  "testing.automaticallyOpenPeekView": "failureAnywhere",
+  "powershell.debugging.createTemporaryIntegratedConsole": true,
+  "powershell.integratedConsole.startInBackground": true,
+  "powershell.integratedConsole.showOnStartup": false,
+  // prompts and confirmations
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "window.confirmSaveUntitledWorkspace": false,
+  "extensions.ignoreRecommendations": true,
+  // ai assistants
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "chat.viewSessions.orientation": "stacked",
+  "claudeCode.preferredLocation": "panel",
+  // trusted domains
+  "chat.tools.urls.autoApprove": {
+    "https://code.visualstudio.com": true,
+    "https://github.com/microsoft/vscode/wiki/*": true,
+    "https://shopify.dev": true
+  },
+  "json.schemaDownload.trustedDomains": {
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://models.dev": true,
+    "https://opencode.ai": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://www.schemastore.org/": true
+  },
+  // databases
+  "pgsql.serverGroups": [
+    {
+      "name": "Servers",
+      "id": "968F2F1E-AF58-4C88-BA9F-1ACBD9663C85",
+      "isDefault": true
+    }
+  ],
+  "pgsql.connections": [
+    {
+      "id": "5CD863AC-A13E-4C8C-B4E5-BA2D0730BC90",
+      "groupId": "968F2F1E-AF58-4C88-BA9F-1ACBD9663C85",
+      "authenticationType": "SqlLogin",
+      "connectTimeout": 15,
+      "applicationName": "vscode-pgsql",
+      "clientEncoding": "utf8",
+      "sslmode": "prefer",
+      "sshSavePassword": true,
+      "savePassword": true,
+      "sslRootCertMode": "none",
+      "server": "localhost",
+      "user": "postgres",
+      "password": "",
+      "database": "",
+      "profileName": "localhost",
+      "expiresOn": 0,
+      "sshPassword": "",
+      "profileSource": 0,
+      "displayName": "localhost"
+    }
+  ]
 }
